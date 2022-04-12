@@ -21,6 +21,7 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     </div>
   );
 
+  // loading..
   if (loading) {
     return (
       <div className='list-items'>
@@ -33,6 +34,8 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
       </div>
     );
   }
+
+  // dont have any items.
   if (tasks.length === 0) {
     return (
       <div className='list-items'>
@@ -44,6 +47,8 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
       </div>
     );
   }
+
+  // pinned된 아이템 먼 정렬.
   const tasksInOrder = [
     ...tasks.filter((t) => t.state === 'TASK_PINNED'),
     ...tasks.filter((t) => t.state !== 'TASK_PINNED'),
